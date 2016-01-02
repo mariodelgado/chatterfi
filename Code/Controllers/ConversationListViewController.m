@@ -112,6 +112,28 @@
     }
 }
 
+#pragma mark - Conversation Selection From Push Notification
+
+- (void)selectConversation:(LYRConversation *)conversation
+{
+    if (conversation) {
+        [self presentControllerWithConversation:conversation];
+    }
+}
+
+#pragma mark - Conversation Selection
+
+// The following method handles presenting the correct `ATLMConversationViewController`, regardeless of the current state of the navigation stack.
+- (void)presentControllerWithConversation:(LYRConversation *)conversation
+{
+    ConversationViewController *controller = [ConversationViewController conversationViewControllerWithLayerClient:self.layerClient];
+    controller.conversation = conversation;
+    controller.shouldDisplayAvatarItemForOneOtherParticipant = YES;
+    controller.displaysAddressBar = YES;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+
 #pragma mark - Actions
 
 - (void)composeButtonTapped:(id)sender
