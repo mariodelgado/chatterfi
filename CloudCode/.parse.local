@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "Mario": {
+      "applicationId": "mKfIUPAVSlDv8TD0wfOI7msbYnLgLmoc2VF2Fz8Y"
+    },
+    "_default": {
+      "link": "Mario"
+    }
+  }
+}

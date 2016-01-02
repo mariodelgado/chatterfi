@@ -1,0 +1,27 @@
+PODS:
+  - Atlas (1.0.15):
+    - LayerKit (>= 0.17.1)
+  - Bolts/Tasks (1.5.1)
+  - LayerKit (0.17.5)
+  - Parse (1.11.0):
+    - Bolts/Tasks (~> 1.5)
+  - ParseUI (1.1.7):
+    - Bolts/Tasks (~> 1.3)
+    - Parse (~> 1.9)
+  - SVProgressHUD (1.1.3)
+
+DEPENDENCIES:
+  - Atlas
+  - Parse
+  - ParseUI
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  Atlas: bd66c5b17719857a6b9e22299f76527245e06e88
+  Bolts: a12663244b1d3351c738882e71902fc74db54f64
+  LayerKit: e9445015ef5f30a9777ba245aa48bd723ee8c697
+  Parse: 886af46a0a677402f6374bb97ac212e795f70afe
+  ParseUI: c2bcdfbb00330e464b5b773266ae221697a3bb7b
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+
+COCOAPODS: 0.39.0

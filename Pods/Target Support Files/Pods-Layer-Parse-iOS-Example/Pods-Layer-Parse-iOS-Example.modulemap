@@ -1,0 +1,6 @@
+framework module Pods_Layer_Parse_iOS_Example {
+  umbrella header "Pods-Layer-Parse-iOS-Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
