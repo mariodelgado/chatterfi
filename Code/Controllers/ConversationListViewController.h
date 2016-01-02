@@ -25,4 +25,7 @@
 
 @interface ConversationListViewController : ATLConversationListViewController
 
+- (void)selectConversation:(LYRConversation *)conversation;
+
+
 @end
