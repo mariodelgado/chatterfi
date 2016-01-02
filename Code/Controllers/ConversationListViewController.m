@@ -52,10 +52,12 @@
 
 - (void)conversationListViewController:(ATLConversationListViewController *)conversationListViewController didSelectConversation:(LYRConversation *)conversation
 {
-    ConversationViewController *controller = [ConversationViewController conversationViewControllerWithLayerClient:self.layerClient];
-    controller.conversation = conversation;
-    controller.displaysAddressBar = YES;
-    [self.navigationController pushViewController:controller animated:YES];
+ [self presentControllerWithConversation:conversation];
+    
+//    ConversationViewController *controller = [ConversationViewController conversationViewControllerWithLayerClient:self.layerClient];
+//    controller.conversation = conversation;
+//    controller.displaysAddressBar = YES;
+//    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)conversationListViewController:(ATLConversationListViewController *)conversationListViewController didDeleteConversation:(LYRConversation *)conversation deletionMode:(LYRDeletionMode)deletionMode
@@ -79,6 +81,12 @@
         }
     }];
 }
+
+- (id<ATLAvatarItem>)conversationListViewController:(ATLConversationListViewController *)conversationListViewController avatarItemForConversation:(LYRConversation *)conversation
+{
+        return [PFUser new];
+    }
+
 
 #pragma mark - ATLConversationListViewControllerDataSource Methods
 
