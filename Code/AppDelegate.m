@@ -19,7 +19,7 @@
 //
 
 #import <LayerKit/LayerKit.h>
-#import "<Parse/Parse.h>"
+#import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import "ViewController.h"
 
@@ -28,8 +28,8 @@
 #pragma mark TODO: Before first launch, update LayerAppIDString, ParseAppIDString or ParseClientKeyString values
 #warning "TODO:If LayerAppIDString, ParseAppIDString or ParseClientKeyString are nil, this app will crash"
 static NSString *const LayerAppIDString = @"layer:///apps/staging/05cd95ba-b10d-11e5-b2a6-2584730b1501";
-static NSString *const ParseAppIDString = nil;
-static NSString *const ParseClientKeyString = nil;
+static NSString *const ParseAppIDString = @"mKfIUPAVSlDv8TD0wfOI7msbYnLgLmoc2VF2Fz8Y";
+static NSString *const ParseClientKeyString = @"o286gDSBdW7JqR2nANZ47wOwO1MeTVKTMVhPGRKn";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
