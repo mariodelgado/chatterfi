@@ -140,7 +140,8 @@
         //                              LYRMessageOptionsPushNotificationSoundNameKey :@"default.aif"};
         
         LYRPushNotificationConfiguration *configuration = [LYRPushNotificationConfiguration new];
-        configuration.alert = [NSString stringWithFormat:@"%@ %@", [PFUser currentUser].firstName, pushText];
+        configuration.alert = [NSString stringWithFormat:@"%@ %@",[PFUser currentUser].firstName, pushText];
+        configuration.title = [NSString stringWithFormat:@"%@", [PFUser currentUser].fullName];
         configuration.sound = @"chime.aiff";
         NSDictionary *pushOptions = @{ LYRMessageOptionsPushNotificationConfigurationKey: configuration };
         

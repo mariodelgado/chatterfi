@@ -53,6 +53,8 @@
 - (void)conversationListViewController:(ATLConversationListViewController *)conversationListViewController didSelectConversation:(LYRConversation *)conversation
 {
  [self presentControllerWithConversation:conversation];
+    NSLog([NSString stringWithFormat:@"%@", conversation]);
+
     
 //    ConversationViewController *controller = [ConversationViewController conversationViewControllerWithLayerClient:self.layerClient];
 //    controller.conversation = conversation;
@@ -136,6 +138,7 @@
 {
     ConversationViewController *controller = [ConversationViewController conversationViewControllerWithLayerClient:self.layerClient];
     controller.conversation = conversation;
+     NSLog([NSString stringWithFormat:@"%@", conversation]);
     controller.shouldDisplayAvatarItemForOneOtherParticipant = YES;
     controller.displaysAddressBar = YES;
     [self.navigationController pushViewController:controller animated:YES];

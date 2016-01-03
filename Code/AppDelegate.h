@@ -22,6 +22,7 @@
 #import <LayerKit/LayerKit.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "ViewController.h"
+#import "ConversationListViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -114,6 +114,7 @@ static NSString *const ParseClientKeyString = @"o286gDSBdW7JqR2nANZ47wOwO1MeTVKT
         __block LYRConversation *conversation = [self conversationFromRemoteNotification:userInfo];
         if (userTappedRemoteNotification && conversation) {
             [self navigateToViewForConversation:conversation];
+             NSLog([NSString stringWithFormat:@"%@", conversation]);
         } else if (userTappedRemoteNotification) {
             [SVProgressHUD showWithStatus:@"Loading Conversation" maskType:SVProgressHUDMaskTypeBlack];
         }
@@ -128,13 +129,13 @@ static NSString *const ParseClientKeyString = @"o286gDSBdW7JqR2nANZ47wOwO1MeTVKT
             // Try navigating once the synchronization completed
             if (userTappedRemoteNotification && !conversation) {
                 [SVProgressHUD dismiss];
-                conversation = [self conversationFromRemoteNotification:userInfo];
-                [self navigateToViewForConversation:conversation];
+
             }
         }];
         
         if (!success) {
             completionHandler(UIBackgroundFetchResultNoData);
+
         }
     }
     else
@@ -142,17 +143,23 @@ static NSString *const ParseClientKeyString = @"o286gDSBdW7JqR2nANZ47wOwO1MeTVKT
         NSLog(@"userInfo: %@",userInfo);
         [PFPush handlePush:userInfo];
         completionHandler(UIBackgroundFetchResultNewData);
+
+        
     }
 }
 
 - (LYRConversation *)conversationFromRemoteNotification:(NSDictionary *)remoteNotification
 {
     NSURL *conversationIdentifier = [NSURL URLWithString:[remoteNotification valueForKeyPath:@"layer.conversation_identifier"]];
+    NSLog([NSString stringWithFormat:@"%@", conversationIdentifier]);
+
     return [self existingConversationForIdentifier:conversationIdentifier];
 }
 
 - (void)navigateToViewForConversation:(LYRConversation *)conversation
 {
+   // [self.controller.conversationListViewController selectConversation:conversation];
+
     if (![NSThread isMainThread]) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Attempted to navigate UI from non-main thread" userInfo:nil];
     }
@@ -161,6 +168,11 @@ static NSString *const ParseClientKeyString = @"o286gDSBdW7JqR2nANZ47wOwO1MeTVKT
     {
         [self.controller.conversationListViewController selectConversation:conversation];
     }
+    else
+    {
+//[self.controller.conversationListViewController selectConversation:conversation];
+    }
+    
 }
 
 - (LYRConversation *)existingConversationForIdentifier:(NSURL *)identifier
@@ -170,5 +182,11 @@ static NSString *const ParseClientKeyString = @"o286gDSBdW7JqR2nANZ47wOwO1MeTVKT
     query.limit = 1;
     return [self.layerClient executeQuery:query error:nil].firstObject;
 }
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    application.applicationIconBadgeNumber = 0;
+}
+
 
 @end
