@@ -127,6 +127,32 @@
     return mergedStatuses;
 }
 
+
+- (NSOrderedSet *)conversationViewController:(ATLConversationViewController *)viewController messagesForMediaAttachments:(NSArray *)mediaAttachments
+{
+    // Configure the push message
+    NSMutableOrderedSet *messages = [NSMutableOrderedSet new];
+    for (ATLMediaAttachment *attachment in mediaAttachments){
+        NSArray *messageParts = ATLMessagePartsWithMediaAttachment(attachment);
+        NSString *pushText = @"sent you a message!";
+        
+        //NSDictionary *pushOptions = @{LYRMessageOptionsPushNotificationAlertKey : [NSString stringWithFormat:@"%@ %@", [PFUser currentUser].firstName, pushText],
+        //                              LYRMessageOptionsPushNotificationSoundNameKey :@"default.aif"};
+        
+        LYRPushNotificationConfiguration *configuration = [LYRPushNotificationConfiguration new];
+        configuration.alert = [NSString stringWithFormat:@"%@ %@", [PFUser currentUser].firstName, pushText];
+        configuration.sound = @"chime.aiff";
+        NSDictionary *pushOptions = @{ LYRMessageOptionsPushNotificationConfigurationKey: configuration };
+        
+        LYRMessage *message = [self.layerClient newMessageWithParts:messageParts options:pushOptions error:nil];
+        
+        if (message){
+            [messages addObject:message];
+        }
+    }
+    return messages;
+}
+
 #pragma mark - ATLAddressBarViewController Delegate methods methods
 
 - (void)addressBarViewController:(ATLAddressBarViewController *)addressBarViewController didTapAddContactsButton:(UIButton *)addContactsButton

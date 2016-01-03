@@ -63,7 +63,7 @@
 		25713D681AC6071600FC5D38 /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
 		25713D691AC6071600FC5D38 /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
 		4499B2833234A6B927451A87 /* Pods-Layer-Parse-iOS-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Layer-Parse-iOS-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Layer-Parse-iOS-Example/Pods-Layer-Parse-iOS-Example.release.xcconfig"; sourceTree = "<group>"; };
-		5AD49BE51AC399DD00B1B0C8 /* Layer-Parse-iOS-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Layer-Parse-iOS-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AD49BE51AC399DD00B1B0C8 /* ChatterFi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatterFi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD49BFE1AC399DD00B1B0C8 /* Layer-Parse-iOS-ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Layer-Parse-iOS-ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD49C031AC399DD00B1B0C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD49C041AC399DD00B1B0C8 /* LayerParseSampleAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LayerParseSampleAppTests.m; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 		5AD49BE61AC399DD00B1B0C8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5AD49BE51AC399DD00B1B0C8 /* Layer-Parse-iOS-Example.app */,
+				5AD49BE51AC399DD00B1B0C8 /* ChatterFi.app */,
 				5AD49BFE1AC399DD00B1B0C8 /* Layer-Parse-iOS-ExampleTests.xctest */,
 			);
 			name = Products;
@@ -216,9 +216,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5AD49BE41AC399DD00B1B0C8 /* Layer-Parse-iOS-Example */ = {
+		5AD49BE41AC399DD00B1B0C8 /* ChatterFi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5AD49C081AC399DD00B1B0C8 /* Build configuration list for PBXNativeTarget "Layer-Parse-iOS-Example" */;
+			buildConfigurationList = 5AD49C081AC399DD00B1B0C8 /* Build configuration list for PBXNativeTarget "ChatterFi" */;
 			buildPhases = (
 				870ECF4D92FFE474D362E91E /* Check Pods Manifest.lock */,
 				5AD49BE11AC399DD00B1B0C8 /* Sources */,
@@ -231,9 +231,9 @@
 			);
 			dependencies = (
 			);
-			name = "Layer-Parse-iOS-Example";
+			name = ChatterFi;
 			productName = LayerParseSampleApp;
-			productReference = 5AD49BE51AC399DD00B1B0C8 /* Layer-Parse-iOS-Example.app */;
+			productReference = 5AD49BE51AC399DD00B1B0C8 /* ChatterFi.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5AD49BFD1AC399DD00B1B0C8 /* Layer-Parse-iOS-ExampleTests */ = {
@@ -286,7 +286,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5AD49BE41AC399DD00B1B0C8 /* Layer-Parse-iOS-Example */,
+				5AD49BE41AC399DD00B1B0C8 /* ChatterFi */,
 				5AD49BFD1AC399DD00B1B0C8 /* Layer-Parse-iOS-ExampleTests */,
 			);
 		};
@@ -394,7 +394,7 @@
 /* Begin PBXTargetDependency section */
 		5AD49C001AC399DD00B1B0C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5AD49BE41AC399DD00B1B0C8 /* Layer-Parse-iOS-Example */;
+			target = 5AD49BE41AC399DD00B1B0C8 /* ChatterFi */;
 			targetProxy = 5AD49BFF1AC399DD00B1B0C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -578,7 +578,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5AD49C081AC399DD00B1B0C8 /* Build configuration list for PBXNativeTarget "Layer-Parse-iOS-Example" */ = {
+		5AD49C081AC399DD00B1B0C8 /* Build configuration list for PBXNativeTarget "ChatterFi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5AD49C091AC399DD00B1B0C8 /* Debug */,
