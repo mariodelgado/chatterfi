@@ -261,11 +261,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = Layer;
+				ORGANIZATIONNAME = mariodelgado;
 				TargetAttributes = {
 					5AD49BE41AC399DD00B1B0C8 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 4MVAASZV55;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					5AD49BFD1AC399DD00B1B0C8 = {
 						CreatedOnToolsVersion = 6.2;
