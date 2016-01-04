@@ -23,12 +23,15 @@
 #import <Bolts/Bolts.h>
 #import "ConversationViewController.h"
 #import "ParticipantTableViewController.h"
+#import "Atlas/Atlas.h"
 #import "UserManager.h"
+
 
 @interface ConversationViewController () <ATLConversationViewControllerDataSource, ATLConversationViewControllerDelegate, ATLParticipantTableViewControllerDelegate>
 
 @property (nonatomic) NSDateFormatter *dateFormatter;
 @property (nonatomic) NSArray *usersArray;
+@property (nonatomic) NSString *lastMessageText;
 
 @end
 
@@ -46,6 +49,8 @@
     self.dateFormatter.doesRelativeDateFormatting = TRUE;
     self.dateFormatter.dateStyle = NSDateFormatterShortStyle;
     self.dateFormatter.timeStyle = NSDateFormatterShortStyle;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(incomingNotification:) name:@"Event" object:nil];
 
     [self configureUI];
 }
@@ -55,13 +60,22 @@
 - (void)configureUI
 {
     [[ATLOutgoingMessageCollectionViewCell appearance] setMessageTextColor:[UIColor whiteColor]];
+    
 }
+
+- (void) incomingNotification:(NSNotification *)notification{
+    NSString *theString = [notification object];
+        NSLog(@"Message : %@", theString);
+}
+
+
 
 #pragma mark - ATLConversationViewControllerDelegate methods
 
 - (void)conversationViewController:(ATLConversationViewController *)viewController didSendMessage:(LYRMessage *)message
 {
-    NSLog(@"Message sent!");
+    
+    NSLog(@"Message sent! %@", _lastMessageText);
 }
 
 - (void)conversationViewController:(ATLConversationViewController *)viewController didFailSendingMessage:(LYRMessage *)message error:(NSError *)error
@@ -134,6 +148,7 @@
     NSMutableOrderedSet *messages = [NSMutableOrderedSet new];
     for (ATLMediaAttachment *attachment in mediaAttachments){
         NSArray *messageParts = ATLMessagePartsWithMediaAttachment(attachment);
+        
         NSString *pushText = @"sent you a message!";
         
         //NSDictionary *pushOptions = @{LYRMessageOptionsPushNotificationAlertKey : [NSString stringWithFormat:@"%@ %@", [PFUser currentUser].firstName, pushText],

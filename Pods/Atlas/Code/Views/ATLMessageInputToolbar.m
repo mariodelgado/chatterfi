@@ -282,12 +282,21 @@ static CGFloat const ATLButtonHeight = 28.0f;
         [self.inputToolBarDelegate messageInputToolbarDidEndTyping:self];
     }
     [self.inputToolBarDelegate messageInputToolbar:self didTapRightAccessoryButton:self.rightAccessoryButton];
+    NSString *text = self.textInputView.text;
+    NSLog(@"Message : %@", text);
     self.textInputView.text = @"";
+    
+
+
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Event" object: text];
+
     [self setNeedsLayout];
     self.mediaAttachments = nil;
     self.attributedStringForMessageParts = nil;
     [self configureRightAccessoryButtonState];
 }
+
 
 #pragma mark - UITextViewDelegate
 

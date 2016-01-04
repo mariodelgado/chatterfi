@@ -107,6 +107,7 @@ NSString *const ATLConversationListViewControllerDeletionModeGlobal = @"Global";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.parentViewController.automaticallyAdjustsScrollViewInsets = YES;
     self.title = ATLLocalizedString(@"atl.conversationlist.title.key", ATLConversationListViewControllerTitle, nil);
     self.accessibilityLabel = ATLConversationListViewControllerTitle;
 
@@ -121,7 +122,7 @@ NSString *const ATLConversationListViewControllerDeletionModeGlobal = @"Global";
         self.searchBar.translucent = NO;
         self.searchBar.accessibilityLabel = @"Search Bar";
         self.searchBar.delegate = self;
-        self.tableView.tableHeaderView = self.searchBar;
+        //self.tableView.tableHeaderView = self.searchBar;
         
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
@@ -137,10 +138,12 @@ NSString *const ATLConversationListViewControllerDeletionModeGlobal = @"Global";
 {
     [super viewWillAppear:animated];
     
+
     // Hide the search bar
     if (!self.hasAppeared) {
         CGFloat contentOffset = self.tableView.contentOffset.y + self.searchBar.frame.size.height;
         self.tableView.contentOffset = CGPointMake(0, contentOffset);
+   
         self.tableView.rowHeight = self.rowHeight;
         [self.tableView registerClass:self.cellClass forCellReuseIdentifier:ATLConversationCellReuseIdentifier];
         if (self.allowsEditing) [self addEditButton];

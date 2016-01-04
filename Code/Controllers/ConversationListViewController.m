@@ -46,6 +46,7 @@
 
     UIBarButtonItem *composeItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(composeButtonTapped:)];
     [self.navigationItem setRightBarButtonItem:composeItem];
+    
 }
 
 #pragma mark - ATLConversationListViewControllerDelegate Methods
@@ -140,7 +141,7 @@
     controller.conversation = conversation;
      NSLog([NSString stringWithFormat:@"%@", conversation]);
     controller.shouldDisplayAvatarItemForOneOtherParticipant = YES;
-    controller.displaysAddressBar = YES;
+ //   controller.displaysAddressBar = YES;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
